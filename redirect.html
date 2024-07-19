@@ -11,12 +11,12 @@
       const code = params.get('code');
       const state = params.get('state');
       console.log('Received code:', code);
+      console.log('Received state:', state);
       if (code && state) {
-        const redirectUrl = `myapp://auth/callback?code=${code}`;
+        const redirectUrl = `myapp://auth/callback?code=${code}&state=${state}`;
         console.log('Redirecting to:', redirectUrl);
         window.location.href = redirectUrl;
-        }
-      else {
+      } else {
         console.log('No code or state received');
       }
     };
@@ -26,3 +26,4 @@
   <p>Redirecting...</p>
 </body>
 </html>
+
