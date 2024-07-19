@@ -9,16 +9,15 @@
       console.log('Redirect page loaded');
       const params = new URLSearchParams(window.location.search);
       const code = params.get('code');
+      const state = params.get('state');
       console.log('Received code:', code);
-      if (code) {
+      if (code && state) {
         const redirectUrl = `myapp://auth/callback?code=${code}`;
         console.log('Redirecting to:', redirectUrl);
-        setTimeout(() => {
         window.location.href = redirectUrl;
-        }, 1000); // 1 second delay
         }
       else {
-        console.log('No code received');
+        console.log('No code or state received');
       }
     };
   </script>
