@@ -6,10 +6,16 @@
   <title>Redirect</title>
   <script>
     window.onload = function() {
+      console.log('Redirect page loaded');
       const params = new URLSearchParams(window.location.search);
       const code = params.get('code');
+      console.log('Received code:', code);
       if (code) {
-        window.location.href = `myapp://auth/callback?code=${code}`;
+        const redirectUrl = `myapp://auth/callback?code=${code}`;
+        console.log('Redirecting to:', redirectUrl);
+        window.location.href = redirectUrl;
+      } else {
+        console.log('No code received');
       }
     };
   </script>
