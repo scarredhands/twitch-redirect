@@ -13,8 +13,11 @@
       if (code) {
         const redirectUrl = `myapp://auth/callback?code=${code}`;
         console.log('Redirecting to:', redirectUrl);
+        setTimeout(() => {
         window.location.href = redirectUrl;
-      } else {
+        }, 1000); // 1 second delay
+        }
+      else {
         console.log('No code received');
       }
     };
